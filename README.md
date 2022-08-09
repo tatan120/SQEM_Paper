@@ -34,7 +34,7 @@ To get a local copy up and replicate the results of the paper follow these steps
    ```sh
    git clone https://github.com/tatan120/SQEM_Paper
    ```
-2. Execute the file `master.py`, located in the `Core codes` folder of the colned repository. 
+2. Execute the file `master.py`, located in the `Core codes` folder of the cloned repository. 
 3. The result files should appear in your core codes folder.
 
 

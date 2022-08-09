@@ -38,13 +38,22 @@ To get a local copy up and replicate the results of the paper follow these steps
 3. The result files should appear in your core codes folder.
 
 
-!-- RESULTS -->
-## Results description
+<!-- RESULTS -->
+## Counterfactual description
 
-The results of the model includes
+The results of the code includes welfare variation counterfactuals simulations for the following scenarios:
+
+* $\delta_1$ progressive variation from $1%$ to $100%$.
+* $\delta_2$ progressive variation from $62%%$ to $100%$ for the four wealthiest cities (Vitacura, Las Condes, Providencia, Santiago).
+* $\delta_2$ progressive variation from $0%%$ to $50%$ for for all municipalities, including those that do not contribute anything.
+* $\delta_3$ progressive variation from $0%$ to $100%$.
+
+in each scenario the ratio $\displaystyle \frac{W_{CF}-W_0}{W_0}$ is computed to explore the effect of each intervention.
 
 <!-- CONTACT -->
 ## Contact
+
+Feel free to let us know any question to the following contact email.
 
 Dusan Paredes  - dparedes@ucn.cl 
 

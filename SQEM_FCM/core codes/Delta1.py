@@ -3,14 +3,13 @@ from sklearn import linear_model
 from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
 import seaborn
-#import seaborn as sns
 
 
 
 htotal=np.array(csvF["h_all"])
 
 
-#Creación de nueva base de datos
+#Local data base
 out_df=csvF[["comuna1","comuna","Ubar","Abar","L","w_mean","Welfare","h_all"]]
 out_matrix1=pd.DataFrame(columns=["comuna1","comuna","delta1","L","w","PI","f","ip","welfare"])
 Wold=out_df["Welfare"].mean()
@@ -25,7 +24,7 @@ Wd=[]
 DV=[]
 prueba=9
 # #################################################################################################
-# #Iteración sobre delta ,3,4,5,6,7,8,9,10
+# Delta 1 iterations
 for s in np.linspace(0,1000,20):
     arg1=arg[:] 
     params1=params[:]
@@ -34,7 +33,7 @@ for s in np.linspace(0,1000,20):
     [Lf,wf,RR,RR1,RR2,RR3]=Recover_Lw(arg1,params1,Abar,Ubar,e1,e2,e3)
     Arg1=[Lf,wf,Ubar,Abar,h_all,r_all,GA,tau,Omega0,Lambda0,Pi0,np.array(csvF["pobres"]), np.array(csvF["h_exento"]),sum(csvF["L"]),np.array(csvF["h_all"]),np.array(csvF["L"])]
     W,PI,P,f,IP=welfare(Arg1,params1,e1,e2,e3)
-    #Guardar variables#
+    #Saving interest variables and changes
     out_df['Wel33_delta'+str(10*s)]=np.array(W)
     delta_m=(s/1000)*np.ones(len(np.array(W)))
     Wnew=out_df['Wel33_delta'+str(10*s)].mean()
@@ -51,7 +50,9 @@ for s in np.linspace(0,1000,20):
     else:
         out_matrix1=out_matrix1.append(out_matrix_m,ignore_index=True)
     print(Wd)
+#Output database for Delta1 Contrafactual######################################################################################################
 data1={"Delta 1":DV, "Porcentual Welfare Changes":Wd}
 delta1_PC=pd.DataFrame(data1)
 delta1_PC.to_csv(r'ResultadosDelta1.csv')
+#Panel database #############################################################################################################
 out_matrix1.to_csv(r'Delta1_Resultados.csv')

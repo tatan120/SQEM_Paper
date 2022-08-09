@@ -37,6 +37,12 @@ To get a local copy up and replicate the results of the paper follow these steps
 2. Execute the file `master.py`, located in the `Core codes` folder of the colned repository. 
 3. The result files should appear in your core codes folder.
 
+
+!-- RESULTS -->
+## Results description
+
+The results of the model includes
+
 <!-- CONTACT -->
 ## Contact
 

@@ -7,10 +7,10 @@ Created on Fri Mar 18 14:31:46 2022
 
 Wd=[]
 DV=[]
-
+#Local Database
 out_matrix2=pd.DataFrame(columns=["comuna1","comuna","delta2","L","w","PI","f","ip","welfare"])
 # #################################################################################################
-# #Iteración sobre delta2 todos pagan
+#Delta 2 Iterations
 for s in np.linspace(0,1000,20):
     arg1=arg[:] 
     params1=params[:]
@@ -19,7 +19,7 @@ for s in np.linspace(0,1000,20):
     [Lf,wf,RR,RR1,RR2,RR3]=Recover_Lw(arg1,params1,Abar,Ubar,e1,e2,e3)
     Arg1=[Lf,wf,Ubar,Abar,h_all,r_all,GA,tau,Omega0,Lambda0,Pi0,np.array(csvF["pobres"]), np.array(csvF["h_exento"]),sum(csvF["L"]),np.array(csvF["h_all"]),np.array(csvF["L"])]
     W,PI,P,f,IP=welfare(Arg1,params1,e1,e2,e3)
-    #Guardar variables#
+    #Saving interest variables and changes #############################
     out_df['Wel33_delta2_'+str(10*s)]=np.array(W)
     delta_m=(s/1000)*np.ones(len(np.array(W)))
     Wnew=out_df['Wel33_delta2_'+str(10*s)].mean()
@@ -38,7 +38,8 @@ for s in np.linspace(0,1000,20):
     else:
         out_matrix2=out_matrix2.append(out_matrix_m,ignore_index=True)
     print(Wd)
-    
+
+#Output databases for contrafactual Delta 2 ############################################
 data2={"Delta 2":DV, "Porcentual Welfare Changes":Wd}
 delta2_PC=pd.DataFrame(data2)
 delta2_PC.to_csv(r'ResultadosDelta2.csv')

@@ -3,7 +3,7 @@
 """
 Created on Thu Nov 11 13:03:15 2021
 
-@author: dusanparedes
+@author: dusanparedes, scuellar, aliciachavez
 """
 import pandas as pd
 import numpy as np
@@ -41,26 +41,7 @@ def welfare(arg,params,e1,e2,e3):
     eta=params[10]
     sigma=params[11] 
     barN=params[12] 
-    
-    #e1=0.5
-    #e2=0.5
-    #e3=0.5  
-
-
-    #csvF2 = pd.read_csv('db_gem.csv')
-    
-    #poor=csvF2["pobres"]
-    #exen=csvF2["h_exentos"]
-    #f=0.25*FCM*np.ones(barN,dtype=object)/barN
-    #f=f+0.1*FCM*(np.array(poor))/(sum(poor))
-    #f=f+0.3*FCM*(np.array(exen))/(sum(exen))
-    #IPP_PC=np.multiply(IPP,np.power(L_01,-1))  
-    #f=f+0.35*np.multiply(FCM/(barN-1),(np.ones(barN,dtype=object)-IPP_PC/np.sum(IPP_PC)))
-    #f=FCM*Pfcm(L_01,poor,IPP,exen,htotal)
-    #E=(np.multiply(w_01,L_01)+f-np.multiply(delta2,Pat)-delta3*Per)
-    #AR=np.power((np.ones(barN,dtype=object)+gamma3*(delta1*iota-np.ones(barN,dtype=object))),-1)
-    #E=np.multiply(E,AR)
-    
+       
     
     Omega=Omega0*(L_01*Pob/L)**e1
     Lambda=Lambda0*(L_01*Pob/L)**e2
@@ -71,11 +52,7 @@ def welfare(arg,params,e1,e2,e3):
     f=FCM*Pfcm(L_01,poor,IPP,exen,h_all)
     E=(np.multiply(w_01,L_01)+f-delta1*Omega-np.multiply(delta2,Lambda)-delta3*Pi)
     E=E/(1-gamma3)
-        #f=FCM*Pfcm(L_01,poor,IPP,exen,htotal)
-        #E=(np.multiply(w_01,L_01)+f-np.multiply(delta2,Pat)-delta3*Per)
-    #AR=np.power((np.ones(barN,dtype=object)+gamma3*(delta1*iota-np.ones(barN,dtype=object))),-1)
-    #E=np.multiply(E,AR)
-    
+
     
     
     #Computing P
